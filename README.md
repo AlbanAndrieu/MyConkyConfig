@@ -64,6 +64,9 @@ This skin was based on [GH0st3rs](https://github.com/GH0st3rs/YahooFinance) work
  * [conky](https://github.com/brndnmtthws/conky) >= 1.10
  * [Font Awesome](https://github.com/FortAwesome/Font-Awesome)
  * Pyton
+ * [cairo](https://www.cairographics.org/download/)
+ * [font-awesome](https://askubuntu.com/questions/700229/how-can-i-display-font-awesome-fonts-in-character-map)
+ * [font](http://epsi-rns.github.io/desktop/2018/02/04/installing-font.html)  
 
 ```
 $ sudo apt install python3-minimal
@@ -81,6 +84,24 @@ $ sudo apt install curl
 $ sudo apt install jq
 ```
 
+ * cairo
+
+```
+$ sudo apt-get install libcairo2-dev
+```
+
+ * awesome
+
+```
+$ sudo apt-get install fonts-font-awesome
+$ fc-list | grep -i awesome
+```
+
+ * cairo
+
+```
+$ gucharmap
+```
+
 ## Images
 The folder [wallpaper](https://github.com/rpungartnik/MyConkyConfig/tree/master/wallpaper) has the image I'm using and a suggestion for the lock screen.
-

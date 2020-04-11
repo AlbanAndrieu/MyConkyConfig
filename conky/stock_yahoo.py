@@ -15,8 +15,8 @@ def parge_args():
 
 URL = 'https://query1.finance.yahoo.com/v7/finance/quote'
 data = {
-    'lang': 'en-US',
-    'region': 'US',
+    'lang': 'fr-FR',
+    'region': 'FR',
     'corsDomain': 'finance.yahoo.com',
 }
 FIELDS = [
@@ -34,7 +34,7 @@ FIELDS = [
     'shortName',
     'longName'
 ]
-CONFIG_NAME = '~/.conky/config.json'
+CONFIG_NAME = '/home/albandrieu/.conky/config.json'
 config = {}
 
 def getCurrPrint(name, price, diff, percent, marketState, status):
@@ -100,7 +100,7 @@ def parseResp(resp):
 def loadConfig():
     global config
     config = json.load(open(CONFIG_NAME))
-    symbols = ['^GSPC', '^IXIC']
+    symbols = ['^FCHI', '^GDAXI']
     symbols += sorted(map(lambda x: x, config))
     return symbols
 
