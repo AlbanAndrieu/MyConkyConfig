@@ -97,10 +97,13 @@ $ sudo apt-get install fonts-font-awesome
 $ fc-list | grep -i awesome
 ```
 
- * cairo
+ * other
 
 ```
 $ gucharmap
+$ sudo apt install libatasmart-bin
+$ sudo apt install smartmontools
+# ln -s /workspace/users/albandrieu30/MyConkyConfig/conky ~/.conky
 ```
 
 ## Images
