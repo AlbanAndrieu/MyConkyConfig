@@ -1,5 +1,7 @@
 # MyConkyConfig
+
 Another [conky](https://github.com/brndnmtthws/conky) configuration skin showing system informations, weather, Market Indexes and Exchange Rates.
+Based on [MyConkyConfig](https://github.com/rpungartnik/MyConkyConfig/)
 
 * [Installation](#installation)
 * [System Information](#system-information)
@@ -13,9 +15,14 @@ Another [conky](https://github.com/brndnmtthws/conky) configuration skin showing
 
 ---
 
-[![screenshot](https://github.com/rpungartnik/MyConkyConfig/blob/master/screenshot-thumb.png)](https://github.com/rpungartnik/MyConkyConfig/blob/master/screenshot.png)
+[![screenshot](https://github.com/AlbanAndrieu/MyConkyConfig/blob/master/screenshot-thumb.png)](https://github.com/AlbanAndrieu/MyConkyConfig/blob/master/screenshot.png)
 
 ---
+
+## Help
+
+[conky_scripts_systeme](https://doc.ubuntu-fr.org/conky_scripts_systeme)
+[variables](https://linuxpedia.fr/doku.php/personaliser/conky/variables)
 
 ## Installation
 After downloading the project, move conky folder to you ~ dir.
@@ -105,6 +112,3 @@ $ sudo apt install libatasmart-bin
 $ sudo apt install smartmontools
 # ln -s /workspace/users/albandrieu30/MyConkyConfig/conky ~/.conky
 ```
-
-## Images
-The folder [wallpaper](https://github.com/rpungartnik/MyConkyConfig/tree/master/wallpaper) has the image I'm using and a suggestion for the lock screen.
