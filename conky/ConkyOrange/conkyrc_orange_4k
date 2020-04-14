@@ -27,7 +27,8 @@ conky.config = {
 
 	gap_x = 100,
 	gap_y = 0,
-	minimum_width = 600, minimum_height = 450,
+	minimum_width = 600, 
+	minimum_height = 450,
 	maximum_width = 600,
 	own_window = true,
 --## me change, added next 2 lines

@@ -41,8 +41,8 @@ conky.config = {
 -------------------------------------
 --  API Key
 -------------------------------------
---template6="a1bd0cf29a620b70c396009b3551fca3",
-template6="6970b6f2f52d08a85e50f4cbaebecb85",
+template6="a1bd0cf29a620b70c396009b3551fca3",
+--template6="6970b6f2f52d08a85e50f4cbaebecb85",
 
 -------------------------------------
 --  City ID

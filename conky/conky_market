@@ -19,7 +19,7 @@ conky.config = {
     own_window_argb_value = 120,
     --own_window_transparent = true,
 
-    own_window_colour = '#484B52',
+    --own_window_colour = '#484B52',
 
     border_inner_margin = 0,
     border_outer_margin = 0,
