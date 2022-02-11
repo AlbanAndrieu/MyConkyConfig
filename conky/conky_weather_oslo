@@ -19,12 +19,12 @@ conky.config = {
     border_inner_margin = 15,
     border_outer_margin = 0,
 
+    alignment = 'middle_left',
+    
     draw_shades = false,
     draw_outline = false,
     draw_borders = false,
     draw_graph_borders = false,
-
-    alignment = 'bottom_left',
 
     use_xft = true,
     xftalpha = 0,
@@ -63,7 +63,7 @@ template9="fr_FR.UTF-8"
 
 conky.text = [[
 ${execi 1800 ~/.conky/get_weather_oslo ${template6} ${template7} ${template8} ${template9}}
-${font Open Sans Light:size=15}${execi 900 jq -r .name ~/.cache/oslo/weather.json}, ${execi 900 jq -r .sys.country ~/.cache/oslo/weather.json}${font}${font Open Sans Light:size=70}${alignr}${execi 900 jq -r .main.temp ~/.cache/oslo/weather.json | awk '{print int($1+0.5)}' # round num}°${font}${voffset -35}
+${font Open Sans Light:size=15}${execi 900 jq -r .name ~/.cache/oslo/weather.json}, ${execi 900 jq -r .sys.country ~/.cache/oslo/weather.json}${font}${font Open Sans Light:size=70}${alignr}${execi 900 jq -r .main.temp ~/.cache/oslo/weather.json | awk '{print int($1+0.5)}' # round num}°${font}${voffset -60}
 ${font Open Sans Light:size=10}${execi 900 cp -f ~/.conky/icons/64/$(jq .weather[0].id ~/.cache/oslo/weather.json).png ~/.cache/oslo/weather.png}${image ~/.cache/oslo/weather.png -p 0,45 -s 60x60 -n}
 
 ${execi 900 jq -r .weather[0].description ~/.cache/oslo/weather.json | sed "s|\<.|\U&|g"}${image ~/.conky/icons/wind.png -p 0,130 -s 15x15}

@@ -13,7 +13,7 @@ def parge_args():
     return parser.parse_args()
 
 
-URL = 'https://query1.finance.yahoo.com/v7/finance/quote'
+URL = 'https://query1.finance.yahoo.com/v8/finance/quote'
 data = {
     'lang': 'fr-FR',
     'region': 'FR',

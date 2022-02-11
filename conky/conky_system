@@ -90,10 +90,10 @@ ${font FontAwesome}${font}${font  Snap.se:size=8}${goto 20}Public IpV4: ${ali
 ${font FontAwesome}${font}${font  Snap.se:size=8}${goto 20}Public IpV6: ${alignr}${execi 3600 wget -O - -q ipv6.icanhazip.com}
 ${voffset -5}
 ${goto 5}${font zekton:style=Bold:pixelsize=14}${color2}Ethernet${font  Snap.se:size=8} ${color1}${hr}${color}
-${font FontAwesome}${font}${font  Snap.se:size=8}${goto 20}Eth0: ${alignr}${addr enp3s0}
-${font FontAwesome}${font}${font  Snap.se:size=8}${goto 20}Down ${downspeed enp3s0}/s ${alignr}${font FontAwesome}${font}${font  Snap.se:size=8}Up ${upspeed enp3s0}/s
-${downspeedgraph enp3s0 15,107} ${alignr}${upspeedgraph enp3s0 15,107}
-Total ${totaldown enp3s0} ${alignr}Total ${totalup enp3s0}
+${font FontAwesome}${font}${font  Snap.se:size=8}${goto 20}Eth0: ${alignr}${addr eno1}
+${font FontAwesome}${font}${font  Snap.se:size=8}${goto 20}Down ${downspeed eno1}/s ${alignr}${font FontAwesome}${font}${font  Snap.se:size=8}Up ${upspeed eno1}/s
+${downspeedgraph eno1 15,107} ${alignr}${upspeedgraph eno1 15,107}
+Total ${totaldown eno1} ${alignr}Total ${totalup eno1}
 ${voffset -5}
 ${goto 5}${font zekton:style=Bold:pixelsize=14}${color2}Wi-Fi${font  Snap.se:size=8} ${color1}${hr}${color}
 ${goto 20}${font Conky Icons by Carelli}E${font}${font  Snap.se:size=8} WLAN  channel: ${wireless_channel wlxc04a00213231}, freq: ${wireless_freq wlxc04a00213231}

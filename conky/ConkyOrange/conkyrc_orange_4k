@@ -3,7 +3,7 @@ conky.config = {
 -- 2020/01/04
 -- this is for conky version 1.1
 -- converted by me using lua convert tool
--- 
+--
 --                               conkyrc_orange
 
 --  author  : AA
@@ -27,7 +27,7 @@ conky.config = {
 
 	gap_x = 100,
 	gap_y = 0,
-	minimum_width = 600, 
+	minimum_width = 600,
 	minimum_height = 450,
 	maximum_width = 600,
 	own_window = true,
@@ -66,7 +66,7 @@ conky.config = {
 conky.text = [[
 
 ${voffset -25}
-${goto 300}${font Ubuntu:normal:size=7}${color3}ping time to albandrieu.com:${alignr} ${font Ubuntu:normal:size=7}${color}${exec ping -c 1 -W 1 google.com | grep -Eo "time=.+"  | cut -c6-14} 
+${goto 300}${font Ubuntu:normal:size=7}${color3}ping time to albandrieu.com:${alignr} ${font Ubuntu:normal:size=7}${color}${exec ping -c 1 -W 1 google.com | grep -Eo "time=.+"  | cut -c6-14}
 
 ${voffset 100}
 ${goto 433}${color4}${font ubuntu:size=18}${time %e}
@@ -83,7 +83,7 @@ ${goto 300}${font Ubuntu:normal:size=7}${color3}${top name 2}${alignr}${top cpu 
 ${goto 300}${font Ubuntu:normal:size=7}${color3}${top name 3}${alignr}${top cpu 5}%
 # https://linuxpedia.fr/doku.php/personaliser/conky/variables
 ${goto 300}${voffset -10}${cpugraph cpuall 35,200 666666 666666 -t -l}
-${goto 300}${voffset -8}${font Ubuntu:normal:size=7}${color}${threads} process 
+${goto 300}${voffset -8}${font Ubuntu:normal:size=7}${color}${threads} process
 
 ${voffset 8}
 ${goto 300}${font Ubuntu:bold:size=7}${color}MEM % / 64 GB
@@ -118,25 +118,25 @@ ${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ub
 ${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}Power use / max: ${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4}${exec nvidia-smi | grep -Eo '...%.+?W' | awk '{print $4}'}${color3} / 75W${font}
 
 ${voffset -10}
-${goto 300}${font Ubuntu:bold:size=7}${color}Network Status ${alignr}${color3}${addr eth1}
-${goto 300}${color3}Down: $color${downspeed eth1} ${color3}/s ${alignr}Up: $color4${upspeed eth1} ${color3}/s
-#${goto 300}${color3}${downspeedgraph eth1 30,60 ${color2} 676f9d} ${goto 235}${color4}${upspeedgraph eth1 30,60 ${color4} 676f9d}$color
-#${color}Total: ${totaldown eth1} ${alignr}Total: ${totalup eth1}
+${goto 300}${font Ubuntu:bold:size=7}${color}Network Status ${alignr}${color3}${addr eno1}
+${goto 300}${color3}Down: $color${downspeed eno1} ${color3}/s ${alignr}Up: $color4${upspeed eno1} ${color3}/s
+#${goto 300}${color3}${downspeedgraph eno1 30,60 ${color2} 676f9d} ${goto 235}${color4}${upspeedgraph eno1 30,60 ${color4} 676f9d}$color
+#${color}Total: ${totaldown eno1} ${alignr}Total: ${totalup eno1}
 
 ${voffset -20}
-${goto 80}${font Ubuntu:bold:size=18}${color3}NET${alignr}${color3}${font Ubuntu:bold:size=7}${color3}${alignr}${if_up eth1}eth ${addr eth1}${endif}${if_up wlan0}wifi ${addr wlan0}${endif}
-${goto 90}${font Ubuntu:bold:size=7}${color}open ports: ${alignr}${color4}${tcp_portmon 1 65535 count}
-${goto 90}${font Ubuntu:bold:size=7}${color}${offset 10}IP${alignr}DPORT
-${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  0}${alignr 1}${tcp_portmon 1 65535 rport  0}
-${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  1}${alignr 1}${tcp_portmon 1 65535 rport  1}
-${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  2}${alignr 1}${tcp_portmon 1 65535 rport  2}
-${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  3}${alignr 1}${tcp_portmon 1 65535 rport  3}
-#${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  4}${alignr 1}${tcp_portmon 1 65535 rport  4}
-#${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  5}${alignr 1}${tcp_portmon 1 65535 rport  5}
-#${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  6}${alignr 1}${tcp_portmon 1 65535 rport  6}
-#${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  7}${alignr 1}${tcp_portmon 1 65535 rport  7}
-#${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  8}${alignr 1}${tcp_portmon 1 65535 rport  8}
-#${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  9}${alignr 1}${tcp_portmon 1 65535 rport  9}
-#${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip 10}${alignr 1}${tcp_portmon 1 65535 rport 10}
-${goto 90}${font Ubuntu:normal:size=7}${color4}____
+${goto 80}${font Ubuntu:bold:size=18}${color3}NET${alignr}${color3}${font Ubuntu:bold:size=7}${color3}${alignr}${if_up eno1}eth ${addr eno1}${endif}${if_up wlan0}wifi ${addr wlan0}${endif}
+#${goto 90}${font Ubuntu:bold:size=7}${color}open ports: ${alignr}${color4}${tcp_portmon 1 65535 count}
+#${goto 90}${font Ubuntu:bold:size=7}${color}${offset 10}IP${alignr}DPORT
+#${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  0}${alignr 1}${tcp_portmon 1 65535 rport  0}
+#${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  1}${alignr 1}${tcp_portmon 1 65535 rport  1}
+#${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  2}${alignr 1}${tcp_portmon 1 65535 rport  2}
+#${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  3}${alignr 1}${tcp_portmon 1 65535 rport  3}
+##${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  4}${alignr 1}${tcp_portmon 1 65535 rport  4}
+##${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  5}${alignr 1}${tcp_portmon 1 65535 rport  5}
+##${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  6}${alignr 1}${tcp_portmon 1 65535 rport  6}
+##${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  7}${alignr 1}${tcp_portmon 1 65535 rport  7}
+##${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  8}${alignr 1}${tcp_portmon 1 65535 rport  8}
+##${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  9}${alignr 1}${tcp_portmon 1 65535 rport  9}
+##${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip 10}${alignr 1}${tcp_portmon 1 65535 rport 10}
+#${goto 90}${font Ubuntu:normal:size=7}${color4}____
 ]];

@@ -87,7 +87,7 @@ gauge = {
     graph_bg_colour=0xffffff,      graph_bg_alpha=0.1,
     graph_fg_colour=0xEF5A29,      graph_fg_alpha=0.5,
     hand_fg_colour=0xEF5A29,       hand_fg_alpha=0.0,
-    txt_radius=143,
+    txt_radius=131,
     txt_weight=0,                  txt_size=9.0,
     txt_fg_colour=0xEF5A29,        txt_fg_alpha=1.0,
     graduation_radius=28,
@@ -108,7 +108,7 @@ gauge = {
     graph_bg_colour=0xffffff,      graph_bg_alpha=0.1,
     graph_fg_colour=0xEF5A29,      graph_fg_alpha=0.5,
     hand_fg_colour=0xEF5A29,       hand_fg_alpha=0.0,
-    txt_radius=119,
+    txt_radius=107,
     txt_weight=0,                  txt_size=9.0,
     txt_fg_colour=0xEF5A29,        txt_fg_alpha=1.0,
     graduation_radius=28,
@@ -129,7 +129,7 @@ gauge = {
     graph_bg_colour=0xffffff,      graph_bg_alpha=0.1,
     graph_fg_colour=0xEF5A29,      graph_fg_alpha=0.5,
     hand_fg_colour=0xEF5A29,       hand_fg_alpha=0.0,
-    txt_radius=102,
+    txt_radius=100,
     txt_weight=0,                  txt_size=9.0,
     txt_fg_colour=0xEF5A29,        txt_fg_alpha=1.0,
     graduation_radius=28,
@@ -150,7 +150,7 @@ gauge = {
     graph_bg_colour=0xffffff,      graph_bg_alpha=0.1,
     graph_fg_colour=0xEF5A29,      graph_fg_alpha=0.5,
     hand_fg_colour=0xEF5A29,       hand_fg_alpha=0.0,
-    txt_radius=78,
+    txt_radius=76,
     txt_weight=0,                  txt_size=9.0,
     txt_fg_colour=0xEF5A29,        txt_fg_alpha=1.0,
     graduation_radius=28,
@@ -372,7 +372,7 @@ gauge = {
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.5,
 },
 {
-    name='fs_used_perc',           arg='/media/music/',                max_value=100,
+    name='fs_used_perc',           arg='/media/bitcoin/',                max_value=100,
     x=85,                          y=800,
     graph_radius=18,
     graph_thickness=5,
@@ -388,7 +388,7 @@ gauge = {
     graduation_thickness=0,        graduation_mark_thickness=1,
     graduation_unit_angle=27,
     graduation_fg_colour=0xFFFFFF, graduation_fg_alpha=0.3,
-    caption='/media/music',
+    caption='/media/bitcoin',
     caption_weight=1,              caption_size=8.0,
     caption_fg_colour=0xFFFFFF,    caption_fg_alpha=0.5,
 },
@@ -601,7 +601,7 @@ function go_clock_rings(display)
         value = tonumber(str)
         draw_clock_ring(display, data, value)
     end
-    
+
     for i in pairs(clock_h) do
         load_clock_rings(display, clock_h[i])
     end
@@ -625,7 +625,7 @@ function go_gauge_rings(display)
         value = tonumber(str)
         draw_gauge_ring(display, data, value)
     end
-    
+
     for i in pairs(gauge) do
         load_gauge_rings(display, gauge[i])
     end
@@ -634,21 +634,21 @@ end
 -------------------------------------------------------------------------------
 --                                                                         MAIN
 function conky_main()
-    if conky_window == nil then 
+    if conky_window == nil then
         return
     end
 
     local cs = cairo_xlib_surface_create(conky_window.display, conky_window.drawable, conky_window.visual, conky_window.width, conky_window.height)
     local display = cairo_create(cs)
-    
+
     local updates = conky_parse('${updates}')
     update_num = tonumber(updates)
-    
+
     if update_num > 5 then
         go_clock_rings(display)
         go_gauge_rings(display)
     end
-    
+
     cairo_surface_destroy(cs)
     cairo_destroy(display)
 end
