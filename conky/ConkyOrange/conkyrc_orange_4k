@@ -125,6 +125,7 @@ ${goto 300}${color3}Down: $color${downspeed eno1} ${color3}/s ${alignr}Up: $colo
 
 ${voffset -20}
 ${goto 80}${font Ubuntu:bold:size=18}${color3}NET${alignr}${color3}${font Ubuntu:bold:size=7}${color3}${alignr}${if_up eno1}eth ${addr eno1}${endif}${if_up wlan0}wifi ${addr wlan0}${endif}
+${goto 80}${font Ubuntu:bold:size=18}${color3}VPN${alignr}${color3}${font Ubuntu:bold:size=7}${color3}${alignr}${if_up tun0}vpn ${addr tun0}${endif}${if_up cscotun0}cisco ${addr cscotun0}${endif}
 #${goto 90}${font Ubuntu:bold:size=7}${color}open ports: ${alignr}${color4}${tcp_portmon 1 65535 count}
 #${goto 90}${font Ubuntu:bold:size=7}${color}${offset 10}IP${alignr}DPORT
 #${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  0}${alignr 1}${tcp_portmon 1 65535 rport  0}

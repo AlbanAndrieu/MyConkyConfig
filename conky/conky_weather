@@ -60,7 +60,8 @@ template8="metric",
 --  Locale (e.g. "es_ES.UTF-8")
 --  Leave empty for default
 -------------------------------------
-template9="fr_FR.UTF-8"
+--template9="fr_FR.UTF-8"
+template9="fr"
 
 };
 

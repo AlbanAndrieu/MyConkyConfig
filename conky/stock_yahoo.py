@@ -12,8 +12,11 @@ def parge_args():
     parser.add_argument('-d', dest='delete', help='Delete symbol')
     return parser.parse_args()
 
-
-URL = 'https://query1.finance.yahoo.com/v8/finance/quote'
+# See https://stackoverflow.com/questions/44030983/yahoo-finance-url-not-working
+#URL = 'https://query1.finance.yahoo.com/v8/finance/quote'
+URL = 'https://query2.finance.yahoo.com/v8/finance/chart/'
+# https://query2.finance.yahoo.com//v8/finance/chart/AAPL?symbol=AAPL&period1=0&period2=9999999999&interval=3mo
+# https://query2.finance.yahoo.com/v10/finance/quoteSummary/AAPL?modules=assetProfile%2CsummaryProfile%2CsummaryDetail%2CesgScores%2Cprice%2CincomeStatementHistory%2CincomeStatementHistoryQuarterly%2CbalanceSheetHistory%2CbalanceSheetHistoryQuarterly%2CcashflowStatementHistory%2CcashflowStatementHistoryQuarterly%2CdefaultKeyStatistics%2CfinancialData%2CcalendarEvents%2CsecFilings%2CrecommendationTrend%2CupgradeDowngradeHistory%2CinstitutionOwnership%2CfundOwnership%2CmajorDirectHolders%2CmajorHoldersBreakdown%2CinsiderTransactions%2CinsiderHolders%2CnetSharePurchaseActivity%2Cearnings%2CearningsHistory%2CearningsTrend%2CindustryTrend%2CindexTrend%2CsectorTrend
 data = {
     'lang': 'fr-FR',
     'region': 'FR',

@@ -15,6 +15,8 @@ id="&id=$2"
 units="&units=$3"
 lang="" ; [[ -v 4 ]] && lang="${4%%_*}" lang="&lang=$lang"
 
+# https://api.openweathermap.org/data/2.5/forecast?APPID=a1bd0cf29a620b70c396009b3551fca3&id=2886242&units=metric&lang=fr
+
 curl -s "${api_prefix}forecast?${appid}${id}${units}${lang}" -o "$forecast"
 curl -s "${api_prefix}weather?${appid}${id}${units}${lang}" -o "$weather"
 
