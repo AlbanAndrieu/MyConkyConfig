@@ -1,7 +1,7 @@
 #!/bin/bash
 set -eu
 
-forecast=~/".cache/oslo/forecast.json"
+forecast=~/".cache/conky/oslo/forecast.json"
 
 get_time () {
     local idx="$1"

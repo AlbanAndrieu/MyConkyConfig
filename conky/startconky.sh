@@ -1,9 +1,8 @@
 #!/bin/sh
 sleep 30
 
-mkdir /home/albandrieu/.cache/oslo || true
-#cp oslo/* frankfurt/
-mkdir /home/albandrieu/.cache/frankfurt || true
+mkdir -p /home/albandrieu/.cache/conky/oslo/ || true
+mkdir -p /home/albandrieu/.cache/conky/frankfurt/ || true
 #ls -lrta /opt/conky/bin/conky
 #ls -lrta /usr/lib/x86_64-linux-gnu/libcairo.so
 #conky -p 5 -c ~/.conky/conky_earthquake &

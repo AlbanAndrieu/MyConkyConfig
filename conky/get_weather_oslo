@@ -5,8 +5,8 @@ set -eu
 # written the file. For some reason adding a sleep before calling curl fixes it.
 sleep 2
 
-forecast=~/".cache/oslo/forecast.json"
-weather=~/".cache/oslo/weather.json"
+forecast=~/".cache/conky/oslo/forecast.json"
+weather=~/".cache/conky/oslo/weather.json"
 
 api_prefix="api.openweathermap.org/data/2.5/"
 
@@ -17,4 +17,3 @@ lang="" ; [[ -v 4 ]] && lang="${4%%_*}" lang="&lang=$lang"
 
 curl -s "${api_prefix}forecast?${appid}${id}${units}${lang}" -o "$forecast"
 curl -s "${api_prefix}weather?${appid}${id}${units}${lang}" -o "$weather"
-
