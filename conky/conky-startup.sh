@@ -1,5 +1,5 @@
 #!/bin/bash
-set -xv
+# set -xv
 
 # Improved DISPLAY detection: Try common displays or fallback
 timeout=30
@@ -31,7 +31,7 @@ if [ -z "$HOME" ]; then
 fi
 
 killall /usr/bin/conky
-rm -f "${HOME}/.conky/conky.pid"
+# rm -f "${HOME}/.conky/conky.pid"
   
 if [ "$DESKTOP_SESSION" = "gnome" -o "$DESKTOP_SESSION" = "ubuntu" ]; then
   sleep 20s
@@ -42,7 +42,9 @@ fi
 "${HOME}/.conky/startconky.sh" | tee /var/log/conky.log > /dev/null
 
 # echo $! > "${HOME}/.conky/conky.pid"
-echo $$ > "${HOME}/.conky/conky.pid"
+echo $$ > ${HOME}/.conky/conky.pid 2>&1
+
+cat ${HOME}/.conky/conky.pid
 
 echo "multitail /var/log/conky.log /var/log/conky/conky_weather.log"
   
