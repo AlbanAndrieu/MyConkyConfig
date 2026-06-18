@@ -36,6 +36,11 @@ conky.config = {
 
     minimum_width = 900,
     minimum_height = 260,
+    
+    background = false,
+    own_window_type = 'normal',
+    own_window_argb_visual = false,
+
 };
 
 conky.text = [[

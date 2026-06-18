@@ -1,4 +1,4 @@
-#!/bin/bash
+#!/usr/bin/env bash
 # set -xv
 
 # Improved DISPLAY detection: Try common displays or fallback
@@ -17,36 +17,31 @@ while [ $timeout -gt 0 ] && [ -z "$DISPLAY" ]; do
   fi
 done
 
-if [ -z "$DISPLAY" ]; then
-  echo "No DISPLAY found, exiting."
-  # DISPLAY=:1
-  exit 2
-fi
-
-export DISPLAY
-
 if [ -z "$HOME" ]; then
   echo "No HOME found."
   HOME="/home/albandrieu"
 fi
 
 # killall /usr/bin/conky
-pkill -x conky || true
-# rm -f "${HOME}/.conky/conky.pid"
-  
+# pkill -x conky || true
+pkill -u "$USER" -x conky || true
+
 if [ "$DESKTOP_SESSION" = "gnome" -o "$DESKTOP_SESSION" = "ubuntu" ]; then
   sleep 20s
-  #cd "/home/albandrieu/.conky/Gotham"
-  # conky -p 20 -c "/home/albandrieu/.conky/Gotham/Gotham" &
 fi
+
+export DISPLAY="${DISPLAY:-:0}"
+export XDG_SESSION_TYPE="${XDG_SESSION_TYPE:-wayland}"
+export WAYLAND_DISPLAY="${WAYLAND_DISPLAY:-wayland-0}"
 
 "${HOME}/.conky/startconky.sh" | tee /var/log/conky.log > /dev/null
 
-# echo $! > "${HOME}/.conky/conky.pid"
 echo $$ > ${HOME}/.conky/conky.pid 2>&1
 
 cat ${HOME}/.conky/conky.pid
 
 echo "multitail /var/log/conky.log /var/log/conky/conky_weather.log"
+
+sleep infinity
   
 exit 0
