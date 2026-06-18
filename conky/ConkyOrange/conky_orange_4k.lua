@@ -13,6 +13,9 @@
 --sudo pip3 install cairosvg
 
 require 'cairo'
+pcall(require, 'cairo_xlib')
+
+pcall(require, 'cairo_xlib')
 
 --------------------------------------------------------------------------------
 --                                                                    clock DATA

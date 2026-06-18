@@ -1,13 +1,13 @@
 #!/bin/sh
 sleep 10
 
-# First run as sudo
+# First time run as sudo
 
-sudo touch /var/log/conky.log
-sudo chown albandrieu:albandrieu /var/log/conky/
-sudo chown albandrieu:albandrieu /var/log/conky.log
-
-sudo mkdir -p /var/log/conky/ || true
+# sudo touch /var/log/conky.log
+# sudo chown albandrieu:albandrieu /var/log/conky/
+# sudo chown albandrieu:albandrieu /var/log/conky.log
+# 
+# sudo mkdir -p /var/log/conky/ || true
 
 mkdir -p /home/albandrieu/.cache/conky/oslo/ || true
 mkdir -p /home/albandrieu/.cache/conky/frankfurt/ || true

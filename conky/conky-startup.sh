@@ -30,7 +30,8 @@ if [ -z "$HOME" ]; then
   HOME="/home/albandrieu"
 fi
 
-killall /usr/bin/conky
+# killall /usr/bin/conky
+pkill -x conky || true
 # rm -f "${HOME}/.conky/conky.pid"
   
 if [ "$DESKTOP_SESSION" = "gnome" -o "$DESKTOP_SESSION" = "ubuntu" ]; then
