@@ -1,0 +1,36 @@
+conky.config = {
+    background = false,
+    update_interval = 60,
+    double_buffer = true,
+    no_buffers = true,
+    text_buffer_size = 4096,
+
+    own_window = true,
+    own_window_type = 'normal',
+    own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
+    own_window_title = 'HOMELAB',
+    own_window_argb_visual = true,
+    own_window_argb_value = 0,
+    own_window_transparent = true,
+
+    -- Centre of the primary monitor, under conky_market.
+    alignment = 'top_middle',
+    gap_x = 0,
+    gap_y = 560,
+    minimum_width = 460,
+    maximum_width = 460,
+
+    draw_shades = false,
+    draw_outline = false,
+    draw_borders = false,
+    draw_graph_borders = false,
+
+    use_xft = true,
+    font = 'Ubuntu:size=9',
+    override_utf8_locale = true,
+    default_color = 'EAEAEA',
+};
+
+conky.text = [[
+${execpi 60 ~/.conky/homelab.sh}
+]];

@@ -1,30 +1,24 @@
 conky.config = {
     background = false,
-    update_interval = 300,
-
+    update_interval = 60,
     double_buffer = true,
     no_buffers = true,
-    text_buffer_size = 2048,
-
-    gap_x = 40,
-    gap_y = 20,
-    minimum_width = 310, minimum_height = 330,
-    maximum_width = 600,
+    text_buffer_size = 4096,
 
     own_window = true,
-    own_window_class = 'conky',
+    own_window_type = 'normal',
     own_window_hints = 'undecorated,below,sticky,skip_taskbar,skip_pager',
-    own_window_title = 'MARKET',
+    own_window_title = 'MARKETS',
     own_window_argb_visual = true,
-    own_window_argb_value = 120,
-    --own_window_transparent = true,
+    own_window_argb_value = 0,
+    own_window_transparent = true,
 
-    --own_window_colour = '#484B52',
-
-    border_inner_margin = 0,
-    border_outer_margin = 0,
-
+    -- Centre of the primary monitor, under the Gotham clock.
     alignment = 'top_middle',
+    gap_x = 0,
+    gap_y = 330,
+    minimum_width = 460,
+    maximum_width = 460,
 
     draw_shades = false,
     draw_outline = false,
@@ -32,33 +26,12 @@ conky.config = {
     draw_graph_borders = false,
 
     use_xft = true,
-    xftalpha = 0.5,
-    font = 'Open Sans Light:size=10',
-    uppercase = false,
-
+    font = 'Ubuntu:size=9',
     override_utf8_locale = true,
-
--- Defining colors
-    default_color = '#FFFFFF',
--- Shades of Gray
-    color1 = '#DDDDDD',
-    color2 = '#AAAAAA',
-    color3 = '#888888',
--- Orange
-    color4 = '#EF5A29',
--- Green
-    color5 = '#77B753',
--- Red
-    color6 = '#D61D1D',
-
---# System information using conky capabilities
-
--- Header with base system info
-    own_window_argb_value = 0,
-    own_window_colour = '#000000',
+    default_color = 'EAEAEA',
 };
 
 conky.text = [[
-${font Ubuntu:size=10:bold}${color4}Stock ${hr 2}
-${execpi 900 /usr/bin/python3 ~/.conky/stock_yahoo.py}
+${font GE Inspira:pixelsize=22}${color FFA300}MARKETS${font}${voffset -4}${color 666666}${hr 1}
+${voffset 4}${execpi 900 ~/.conky/market.sh}
 ]];
