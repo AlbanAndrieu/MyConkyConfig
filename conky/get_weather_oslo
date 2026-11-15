@@ -11,10 +11,11 @@ mkdir -p "${weather%/*}"
 
 api_prefix="api.openweathermap.org/data/2.5/"
 
-appid="APPID=$1"
-id="&id=$2"
-units="&units=$3"
-lang="" ; [[ -v 4 ]] && lang="${4%%_*}" lang="&lang=$lang"
+# Kept out of the public repository.
+appid="APPID=$(cat ~/.config/conky/openweathermap.key)"
+id="&id=$1"
+units="&units=$2"
+lang="" ; [[ -v 3 ]] && lang="${3%%_*}" lang="&lang=$lang"
 
 curl -s "${api_prefix}forecast?${appid}${id}${units}${lang}" -o "$forecast"
 curl -s "${api_prefix}weather?${appid}${id}${units}${lang}" -o "$weather"

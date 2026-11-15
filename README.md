@@ -16,7 +16,9 @@ Based on [MyConkyConfig](https://github.com/rpungartnik/MyConkyConfig/)
 * [API-key](#api-key)
 * [City](#city)
 * [Language](#language)
-* [Market Indexes](#market-indexes)
+* [Markets](#markets)
+* [Homelab](#homelab)
+* [Checks](#checks)
 * [Requisites](#requisites)
 * [Images](#images)
 
@@ -55,7 +57,11 @@ This skin was based on [Harmattan](https://github.com/zagortenay333/Harmattan) c
 ##### API Key
 Register a private API key on [OpenWeatherMap](http://openweathermap.org/) to get weather data.
 
-Place the API key in the `template6` variable inside the `conkyrc_weather`file.
+Keep the API key out of this public repository, in a private file read by the `get_weather*` scripts:
+
+```
+$ mkdir -p ~/.config/conky && (umask 077; echo YOUR_KEY > ~/.config/conky/openweathermap.key)
+```
 
 ##### City
 
@@ -69,10 +75,23 @@ Edit the `template9` variable in the `conkyrc_weather` file to change the langua
 
 [See the list of supported languages](http://openweathermap.org/current#multi)
 
-### Market Indexes
-Show Market Indexes and Currency rates.
+### Markets
+`conky_market` shows TotalEnergies, the CAC 40, the DAX, two DAX trackers and Bitcoin with the day change and an
+intraday sparkline, from the Yahoo Finance chart API. Edit the `quotes` list in `market.sh` to change them.
 
-This skin was based on [GH0st3rs](https://github.com/GH0st3rs/YahooFinance) work.
+### Homelab
+`conky_homelab` shows the pfSense gateway and WAN latency, TrueNAS CPU, memory and pools, the Prometheus targets
+down, failing Gatus endpoints and the active Alertmanager alerts. Override `HOMELAB_PROMETHEUS`,
+`HOMELAB_ALERTMANAGER` or `HOMELAB_GATEWAY` in `homelab.sh` for another network.
+
+## Checks
+
+```
+$ sudo apt install lua5.4      # luac
+$ mise install && mise run hooks
+$ mise run validate            # every config started by startconky.sh compiles, its helpers exist
+$ mise run check               # all pre-commit hooks
+```
 
 ## Requisites:
  * [conky](https://github.com/brndnmtthws/conky) >= 1.10

@@ -1,0 +1,24 @@
+# ~/.conky points to this directory: track the configuration in use, not the themes collected over the years.
+/*/
+!/ConkyOrange/
+!/Gotham/
+!/icons/
+
+# Runtime files, local backups and the ~/.conky -> conky self-link.
+/conky
+/conky.pid
+/zpool_status
+*.bak-*
+
+# Local helpers that startconky.sh does not start.
+/.opencommit-commitlint
+/conky-systemd.sh
+/convert.lua
+/fortune_variety_quotes.py
+/vdm.py
+
+# Old Gotham variants; GE Inspira is a proprietary font, installed in ~/.local/share/fonts.
+/Gotham/1
+/Gotham/Gotham-NEW
+/Gotham/Gotham.png
+/Gotham/fonts/GE_Inspira.ttf

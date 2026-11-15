@@ -20,7 +20,7 @@ conky.config = {
     border_outer_margin = 0,
 
     alignment = 'middle_left',
-    
+
     draw_shades = false,
     draw_outline = false,
     draw_borders = false,
@@ -36,10 +36,8 @@ conky.config = {
     default_color = 'white',
 
 -------------------------------------
---  API Key
+--  API key: ~/.config/conky/openweathermap.key (not in git)
 -------------------------------------
-template6="a1bd0cf29a620b70c396009b3551fca3",
---template6="6970b6f2f52d08a85e50f4cbaebecb85",
 
 -------------------------------------
 --  City ID
@@ -63,7 +61,7 @@ template9="fr"
 };
 
 conky.text = [[
-${execi 1800 ~/.conky/get_weather_oslo ${template6} ${template7} ${template8} ${template9}}
+${execi 1800 ~/.conky/get_weather_oslo ${template7} ${template8} ${template9}}
 ${font Open Sans Light:size=15}${execi 900 jq -r .name ~/.cache/conky/oslo/weather.json}, ${execi 900 jq -r .sys.country ~/.cache/conky/oslo/weather.json}${font}${font Open Sans Light:size=70}${alignr}${execi 900 jq -r .main.temp ~/.cache/conky/oslo/weather.json | awk '{print int($1+0.5)}' # round num}°${font}${voffset -60}
 ${font Open Sans Light:size=10}${execi 900 cp -f ~/.conky/icons/64/$(jq .weather[0].id ~/.cache/conky/oslo/weather.json).png ~/.cache/conky/oslo/weather.png}${image ~/.cache/conky/oslo/weather.png -p 0,45 -s 60x60 -n}
 

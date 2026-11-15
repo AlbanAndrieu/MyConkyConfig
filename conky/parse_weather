@@ -100,7 +100,7 @@ get_min_property () {
 
 	LC_ALL=en_US.UTF-8 printf -v intx '%.*f' 0 $it
 
-	if [ $intx -lt $res ] 
+	if [ $intx -lt $res ]
 	then
 		res=$intx
 	fi
@@ -143,7 +143,7 @@ get_max_property () {
 
 	LC_ALL=en_US.UTF-8 printf -v intx '%.*f' 0 $it
 
-	if [ $intx -gt $res ] 
+	if [ $intx -gt $res ]
 	then
 		res=$intx
 	fi
@@ -183,7 +183,7 @@ get_first_property () {
 }
 
 # Currently, the free accounts on openweathermap.org only get a 5 day forecast
-# with data records for every 3 hours. Wheather Icons follow a simple logic, 
+# with data records for every 3 hours. Wheather Icons follow a simple logic,
 # they go from the best to worst clime. Simple return the biggest number
 get_weather_icon () {
     local res=0
@@ -206,7 +206,7 @@ get_weather_icon () {
 	it=${it:1:2}
 	LC_ALL=en_US.UTF-8 printf -v intx '%02d' $it
 
-	if [ $intx -gt $res ] 
+	if [ $intx -gt $res ]
 	then
 		res=$intx
 		cond=$(jq ".list[$idx].weather[0].id" "$forecast")

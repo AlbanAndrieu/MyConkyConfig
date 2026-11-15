@@ -99,33 +99,29 @@ ${goto 300}${font Ubuntu:bold:size=7}${color}DISKS % ${font Ubuntu:normal:size=7
 ${goto 300}${diskiograph 30,200 666666 666666}${voffset -10}
 
 # added by me for temps
-${voffset 20}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}Disk Issue ?${voffset 10}${font Ubuntu:bold:size=7}${color4}${execi 30 smartctl --quietmode=errorsonly --all /dev/sda}${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-1 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 0' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-2 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 1' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-3 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 2' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-4 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 3' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-5 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 4' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-6 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 5' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-7 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 6' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-8 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 7' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
+${voffset 20}${goto 300}${font Ubuntu:bold:size=7}${color3}SMART health${alignr}${color4}${execi 300 echo "$(grep -c '^smartmon_device_smart_healthy.* 1$' /var/lib/prometheus/node-exporter/smartmon.prom)/$(grep -c '^smartmon_device_smart_healthy' /var/lib/prometheus/node-exporter/smartmon.prom) disks OK"}${font}
+${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color3}CPU cores °C${alignr}${color4}${execi 10 sensors | grep -oP '^Core \d+:\s+\+\K\d+' | paste -sd' '}${color3} / 100${font}
 # sudo hddtemp /dev/sda --numeric
 #sudo smartctl -A /dev/sda
 #${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}HDD Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4}${execi 30 udisksctl dump | grep Temp | grep -Po '\d+\.*\d*'}${color3}°F / 100°C${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}Graphics card: ${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4}${exec nvidia-smi -q -a | grep -Eo 'RTX .+'}${color3}${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}Fan Speed: ${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4}${exec nvidia-smi | grep -Eo '...%.+?W' | awk '{print $1}'}${color3}${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}GPU temp / max: ${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4}${exec nvidia-smi | grep -Eo '...%.+?W' | awk '{print $2}'}${color3} / 99°C${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}Perf level: ${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4}${exec nvidia-smi | grep -Eo '...%.+?W' | awk '{print $3}'}${color3}${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}Power use / max: ${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4}${exec nvidia-smi | grep -Eo '...%.+?W' | awk '{print $4}'}${color3} / 75W${font}
+${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color3}Graphics card${alignr}${color4}${execi 3600 nvidia-smi --format=csv,noheader --query-gpu=name | sed 's/NVIDIA GeForce //'}${font}
+${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color3}Fan speed${alignr}${color4}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=fan.speed}${font}
+${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color3}GPU temp / max${alignr}${color4}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=temperature.gpu}°C${color3} / 99°C${font}
+${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color3}Perf level / load${alignr}${color4}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=pstate,utilization.gpu | sed 's|, | / |'}${font}
+${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color3}Power use / limit${alignr}${color4}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=power.draw,power.limit | sed 's|, | / |'}${font}
+${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color3}VRAM used / total${alignr}${color4}${execi 10 nvidia-smi --format=csv,noheader --query-gpu=memory.used,memory.total | sed 's|, | / |'}${font}
 
 ${voffset -10}
-${goto 300}${font Ubuntu:bold:size=7}${color}Network Status ${alignr}${color3}${addr eno1}
-${goto 300}${color3}Down: $color${downspeed eno1} ${color3}/s ${alignr}Up: $color4${upspeed eno1} ${color3}/s
-#${goto 300}${color3}${downspeedgraph eno1 30,60 ${color2} 676f9d} ${goto 235}${color4}${upspeedgraph eno1 30,60 ${color4} 676f9d}$color
-#${color}Total: ${totaldown eno1} ${alignr}Total: ${totalup eno1}
+${goto 300}${font Ubuntu:bold:size=7}${color}NETWORK${alignr}${color3}eno1 ${color1}${addr eno1}
+${goto 300}${font Ubuntu:normal:size=7}${color3}Down ${color}${downspeed eno1}/s${alignr}${color3}Up ${color4}${upspeed eno1}/s
+${goto 300}${downspeedgraph eno1 22,145 333333 FFFFFF -t}${goto 455}${upspeedgraph eno1 22,145 333333 EF5A29 -t}
+${goto 300}${color3}Total ${color}${totaldown eno1}${alignr}${color3}Total ${color4}${totalup eno1}
+${goto 300}${color3}TCP connections ${color1}${tcp_portmon 1 65535 count}${alignr}${color3}listening ${color1}${execi 60 ss -Htln | wc -l}
+${goto 300}${color3}Gateway ${color1}${gw_ip}${alignr}${color3}DNS ${color1}${execi 300 resolvectl dns eno1 | cut -d' ' -f4-}
 
 ${voffset -20}
-${goto 80}${font Ubuntu:bold:size=18}${color3}NET${alignr}${color3}${font Ubuntu:bold:size=7}${color3}${alignr}${if_up eno1}eth ${addr eno1}${endif}${if_up wlan0}wifi ${addr wlan0}${endif}
-${goto 80}${font Ubuntu:bold:size=18}${color3}VPN${alignr}${color3}${font Ubuntu:bold:size=7}${color3}${alignr}${if_up tun0}vpn ${addr tun0}${endif}${if_up cscotun0}cisco ${addr cscotun0}${endif}
+${goto 80}${font Ubuntu:bold:size=18}${color3}NET${alignr}${font Ubuntu:bold:size=7}${if_up eno1}${color3}eth ${addr eno1}${else}${color E05A47}eno1 down${endif}
+${goto 80}${font Ubuntu:bold:size=18}${color3}VPN${alignr}${font Ubuntu:bold:size=7}${color3}${if_up CloudflareWARP}warp ${addr CloudflareWARP}${else}${if_up tun0}vpn ${addr tun0}${else}${if_up cscotun0}cisco ${addr cscotun0}${else}off${endif}${endif}${endif}
 #${goto 90}${font Ubuntu:bold:size=7}${color}open ports: ${alignr}${color4}${tcp_portmon 1 65535 count}
 #${goto 90}${font Ubuntu:bold:size=7}${color}${offset 10}IP${alignr}DPORT
 #${goto 90}${font Ubuntu:normal:size=7}${color1}${tcp_portmon 1 65535 rip  0}${alignr 1}${tcp_portmon 1 65535 rport  0}

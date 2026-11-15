@@ -26,7 +26,7 @@ fi
 # pkill -x conky || true
 pkill -u "$USER" -x conky || true
 
-if [ "$DESKTOP_SESSION" = "gnome" -o "$DESKTOP_SESSION" = "ubuntu" ]; then
+if [ "$DESKTOP_SESSION" = "gnome" ] || [ "$DESKTOP_SESSION" = "ubuntu" ]; then
   sleep 20s
 fi
 
@@ -43,5 +43,5 @@ cat ${HOME}/.conky/conky.pid
 echo "multitail /var/log/conky.log /var/log/conky/conky_weather.log"
 
 sleep infinity
-  
+
 exit 0

@@ -1,0 +1,26 @@
+# Tools for the checks; luac comes from the lua5.4 apt package.
+min_version = "2026.7.0"
+
+[tools]
+shellcheck = "0.11.0"
+"pipx:pre-commit" = "4.7.0"
+jq = "1.8.2"
+
+[settings]
+auto_install = false
+
+[tasks.validate]
+description = "Compile every conky config and Lua script started by startconky.sh, check their helpers"
+run = "bash scripts/check-conky.sh"
+
+[tasks.check]
+description = "Run every pre-commit hook on the whole repository"
+run = "pre-commit run --all-files"
+
+[tasks.hooks]
+description = "Install the pre-commit Git hook"
+run = "pre-commit install"
+
+[tasks.restart]
+description = "Restart conky through the conky.service user unit"
+run = "systemctl --user restart conky.service"
