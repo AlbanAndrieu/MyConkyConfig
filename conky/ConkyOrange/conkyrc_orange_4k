@@ -66,7 +66,7 @@ conky.config = {
 conky.text = [[
 
 ${voffset -25}
-${goto 300}${font Ubuntu:normal:size=7}${color3}ping time to albandrieu.com:${alignr} ${font Ubuntu:normal:size=7}${color}${exec ping -c 1 -W 1 google.com | grep -Eo "time=.+"  | cut -c6-14}
+${goto 300}${font Ubuntu:normal:size=7}${color3}ping time to google.com:${alignr} ${font Ubuntu:normal:size=7}${color}${execi 60 ping -c 1 -W 1 google.com | grep -Eo "time=.+"  | cut -c6-14}
 
 ${voffset 100}
 ${goto 433}${color4}${font ubuntu:size=18}${time %e}
@@ -79,8 +79,8 @@ ${goto 300}${font Ubuntu:bold:size=7}${color}CPU %
 ${goto 300}${font Ubuntu:normal:size=7}${color1}${top name 1}${alignr}${top cpu 1}%
 ${goto 300}${font Ubuntu:normal:size=7}${color2}${top name 2}${alignr}${top cpu 2}%
 ${goto 300}${font Ubuntu:normal:size=7}${color3}${top name 3}${alignr}${top cpu 3}%
-${goto 300}${font Ubuntu:normal:size=7}${color3}${top name 2}${alignr}${top cpu 4}%
-${goto 300}${font Ubuntu:normal:size=7}${color3}${top name 3}${alignr}${top cpu 5}%
+${goto 300}${font Ubuntu:normal:size=7}${color3}${top name 4}${alignr}${top cpu 4}%
+${goto 300}${font Ubuntu:normal:size=7}${color3}${top name 5}${alignr}${top cpu 5}%
 # https://linuxpedia.fr/doku.php/personaliser/conky/variables
 ${goto 300}${voffset -10}${cpugraph cpuall 35,200 666666 666666 -t -l}
 ${goto 300}${voffset -8}${font Ubuntu:normal:size=7}${color}${threads} process
@@ -90,8 +90,8 @@ ${goto 300}${font Ubuntu:bold:size=7}${color}MEM % / 64 GB
 ${goto 300}${font Ubuntu:normal:size=7}${color1}${top_mem name 1}${alignr}${top_mem mem 1}%
 ${goto 300}${font Ubuntu:normal:size=7}${color2}${top_mem name 2}${alignr}${top_mem mem 2}%
 ${goto 300}${font Ubuntu:normal:size=7}${color3}${top_mem name 3}${alignr}${top_mem mem 3}%
-${goto 300}${font Ubuntu:normal:size=7}${color3}${top_mem name 2}${alignr}${top_mem mem 4}%
-${goto 300}${font Ubuntu:normal:size=7}${color3}${top_mem name 3}${alignr}${top_mem mem 5}%
+${goto 300}${font Ubuntu:normal:size=7}${color3}${top_mem name 4}${alignr}${top_mem mem 4}%
+${goto 300}${font Ubuntu:normal:size=7}${color3}${top_mem name 5}${alignr}${top_mem mem 5}%
 
 ${voffset 12}
 ${goto 300}${font Ubuntu:bold:size=7}${color}DISKS % ${font Ubuntu:normal:size=7}${color3}used: ${color1}${fs_used /}
@@ -104,10 +104,10 @@ ${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ub
 ${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-2 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 1' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
 ${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-3 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 2' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
 ${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-4 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 3' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-4 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 4' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-4 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 5' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-4 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 6' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
-${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-4 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 7' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
+${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-5 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 4' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
+${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-6 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 5' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
+${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-7 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 6' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
+${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}CPU-8 Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4} ${exec sensors | grep 'Core 7' | cut -c17-19 | grep -Po '\d+'}${color3}°C / 100°C${font}
 # sudo hddtemp /dev/sda --numeric
 #sudo smartctl -A /dev/sda
 #${voffset 5}${goto 300}${font Ubuntu:bold:size=7}${color2}${voffset -2}${font Ubuntu:bold:size=7}${color3}${offset 0}HDD Temperature${goto 95}${font Ubuntu:bold:size=7}${alignr}${color4}${execi 30 udisksctl dump | grep Temp | grep -Po '\d+\.*\d*'}${color3}°F / 100°C${font}

@@ -7,6 +7,7 @@ sleep 2
 
 forecast=~/".cache/conky/forecast.json"
 weather=~/".cache/conky/weather.json"
+mkdir -p "${weather%/*}"
 
 api_prefix="api.openweathermap.org/data/2.5/"
 
