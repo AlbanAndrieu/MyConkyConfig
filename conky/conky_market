@@ -17,8 +17,10 @@ conky.config = {
     alignment = 'top_middle',
     gap_x = 0,
     gap_y = 330,
-    minimum_width = 460,
-    maximum_width = 460,
+    minimum_width = 480,
+    maximum_width = 480,
+    -- Conky sizes rows with the Ubuntu font; the DejaVu Mono sparklines make them taller.
+    minimum_height = 200,
 
     draw_shades = false,
     draw_outline = false,

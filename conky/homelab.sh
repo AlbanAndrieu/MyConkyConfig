@@ -15,8 +15,8 @@ int() { LC_NUMERIC=C printf '%.0f' "${1:-0}"; }
 # Green below the warning threshold, orange up to the critical one, red beyond.
 level() { awk -v v="${1:-0}" -v w="$2" -v c="$3" -v g="${green}" -v o="${orange}" -v r="${red}" \
   'BEGIN {print (v >= c) ? r : (v >= w) ? o : g}'; }
-# The Ubuntu font has no bullet or triangle glyphs.
-row() { printf '${color %s}${font DejaVu Sans:size=8}●${font}${goto 24}${color EAEAEA}%s${goto 110}${color AAAAAA}%s\n' "$1" "$2" "$3"; }
+# Ubuntu has • but no ● or ▲; a font switch at line start makes conky undersize the window.
+row() { printf '${color %s}•${goto 24}${color EAEAEA}%s${goto 110}${color AAAAAA}%s\n' "$1" "$2" "$3"; }
 detail() { printf '${goto 110}${color %s}%s\n' "${2:-888888}" "$1"; }
 
 echo '${font GE Inspira:pixelsize=22}${color FFA300}HOMELAB${font}${voffset -4}${color 666666}${hr 1}'
@@ -51,8 +51,9 @@ else
   up="$(query 'count(up == 1)')"
   down="$(query_json 'up == 0' | jq -r '[.data.result[].metric.job | sub("_(bazarr|lidarr|prowlarr|radarr|sonarr)$"; "")] | unique | join(", ")')"
   row "$(level "$((targets - up))" 1 5)" Prometheus "${up}/${targets} targets up"
-  ((${#down} > 52)) && down="${down:0:51}…"
-  [[ -n "${down}" ]] && detail "down: ${down}" 888888
+  if [[ -n "${down}" ]]; then
+    fold -s -w 56 <<<"down: ${down}" | while read -r line; do detail "${line}" 888888; done
+  fi
 fi
 
 endpoints="$(query 'count(gatus_results_endpoint_success)')"
@@ -76,7 +77,7 @@ else
   jq -r --arg r "${red}" --arg o "${orange}" '
     sort_by({critical: 0, warning: 1}[.labels.severity] // 2) | .[:5][]
     | ({critical: $r, warning: $o}[.labels.severity] // "888888") as $c
-    | "${goto 110}${color \($c)}${font DejaVu Sans:size=7}\(if .labels.severity == "info" then "·" else "▲" end)${font} \(.labels.alertname)${alignr}${color 666666}\(.labels.instance // "")"
+    | "${goto 110}${color \($c)}• \(.labels.alertname)${alignr}${color 666666}\(.labels.instance // "")"
     ' <<<"${alerts}"
 fi
 echo "\${font Ubuntu:size=6}\${color 666666}Prometheus · Alertmanager · $(date +%H:%M)\${font}"
