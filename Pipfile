@@ -5,8 +5,8 @@ name = "pypi"
 
 [packages]
 ansible-cmdb = ">=1.31"
-ansible-core = ">=2.16.8"
-dnspython = ">=2.3.0"
+ansible-core = ">=2.19.15"
+dnspython = ">=2.9.2"
 #jmespath = "==0.10.0"
 zabbix-api = ">=0.5.5"
 netaddr = ">=0.8.0"
