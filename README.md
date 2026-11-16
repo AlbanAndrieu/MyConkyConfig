@@ -76,8 +76,8 @@ Edit the `template9` variable in the `conkyrc_weather` file to change the langua
 [See the list of supported languages](http://openweathermap.org/current#multi)
 
 ### Markets
-`conky_market` shows TotalEnergies, the CAC 40, the DAX, two DAX trackers and Bitcoin with the day change and an
-intraday sparkline, from the Yahoo Finance chart API. Edit the `quotes` list in `market.sh` to change them.
+`conky_market` shows TotalEnergies, the CAC 40, the DAX, two DAX trackers and Bitcoin with the day and one-year
+change and a one-year sparkline, from the Yahoo Finance chart API. Edit the `quotes` list in `market.sh` to change them.
 
 ### Homelab
 `conky_homelab` shows the pfSense gateway and WAN latency, TrueNAS CPU, memory and pools, the Prometheus targets
